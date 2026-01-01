@@ -1,0 +1,6 @@
+url: "xfactor-robotics.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "" # the subpath of your site, e.g. /blog
+title: "X_Factor Robotics" # the name of your site, e.g. ACME Corp.
+
+
+remote_theme: chrisrhymes/mere-blog-theme
