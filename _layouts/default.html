@@ -1,12 +1,61 @@
 <!DOCTYPE html>
-<html lang="{{ site.lang | default: "en-US" }}">
+<html lang="{{ site.lang | default: 'en-US' }}">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
     <title>{{ page.title }} - {{ site.title }}</title>
-    <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
+    <meta name="description" content="X_Factor Robotics - A FIRST Tech Challenge (FTC) team building robots and having fun">
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   </head>
   <body>
-    {{ content }}
+    <header class="site-header">
+      <nav class="navbar">
+        <a href="{{ '/' | relative_url }}" class="logo">
+          <span class="logo-icon">⚙️</span>
+          <span class="logo-text">X_Factor Robotics</span>
+        </a>
+        <button class="nav-toggle" aria-label="Toggle navigation">
+          <span class="hamburger"></span>
+        </button>
+        <ul class="nav-links">
+          <li><a href="{{ '/' | relative_url }}" {% if page.url == '/' %}class="active"{% endif %}>Home</a></li>
+          <li><a href="{{ '/about' | relative_url }}" {% if page.url == '/about/' %}class="active"{% endif %}>About</a></li>
+          <li><a href="{{ '/team' | relative_url }}" {% if page.url == '/team/' %}class="active"{% endif %}>Team</a></li>
+          <li><a href="{{ '/contact' | relative_url }}" {% if page.url == '/contact/' %}class="active"{% endif %}>Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="main-content">
+      {{ content }}
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <span class="logo-icon">⚙️</span>
+          <span class="footer-name">X_Factor Robotics</span>
+        </div>
+        <p class="footer-tagline">A FIRST Tech Challenge team with big dreams.</p>
+        <div class="footer-links">
+          <a href="{{ '/' | relative_url }}">Home</a>
+          <a href="{{ '/about' | relative_url }}">About</a>
+          <a href="{{ '/team' | relative_url }}">Team</a>
+          <a href="{{ '/contact' | relative_url }}">Contact</a>
+        </div>
+        <p class="copyright">&copy; {{ 'now' | date: '%Y' }} X_Factor Robotics. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile navigation toggle
+      document.querySelector('.nav-toggle').addEventListener('click', function() {
+        document.querySelector('.nav-links').classList.toggle('active');
+        this.classList.toggle('active');
+      });
+    </script>
   </body>
 </html>
